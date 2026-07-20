@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Menu | Pavillion Ristorante &amp; Pizzeria, Landisville NJ</title>
+<meta name="description" content="Browse the full menu at Pavillion Pizza — pizza, specialty pies, stromboli, subs, pasta, salads and more. Family-owned in Landisville, NJ since 1998.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<div class="announcement-bar">
+  <p>Family-owned in Landisville since 1998 &middot; <a href="tel:+18566970240">Call to order: (856) 697-0240</a></p>
+</div>
+
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="logo">Pavillion<span>Ristorante &amp; Pizzeria</span></a>
+    <nav class="main-nav" aria-label="Main navigation">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="menu.html" aria-current="page">Menu</a></li>
+        <li><a href="order-online.html">Order Online</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="catering.html">Catering</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <a class="header-call" href="tel:+18566970240"><span aria-hidden="true">&#128222;</span> (856) 697-0240</a>
+      <a class="btn btn-primary" href="order-online.html">Order Online</a>
+    </div>
+    <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav"><span></span></button>
+  </div>
+  <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+    <a href="index.html">Home</a>
+    <a href="menu.html" aria-current="page">Menu</a>
+    <a href="order-online.html">Order Online</a>
+    <a href="about.html">About</a>
+    <a href="catering.html">Catering</a>
+    <a href="contact.html">Contact</a>
+    <a class="btn btn-primary btn-block" href="order-online.html">Order Online</a>
+  </nav>
+</header>
+
+<main id="main">
+
+  <div class="page-hero">
+    <div class="container">
+      <h1>Our Menu</h1>
+      <p>Every price and description below is exactly what we serve &mdash; search or browse by category.</p>
+    </div>
+  </div>
+
+  <div class="menu-toolbar">
+    <div class="container">
+      <div class="menu-search">
+        <label class="visually-hidden" for="menuSearchInput">Search the menu</label>
+        <input type="search" id="menuSearchInput" placeholder="Search the menu (e.g. &ldquo;chicken parm&rdquo;, &ldquo;calzone&rdquo;)">
+      </div>
+      <nav class="category-nav" id="categoryNav" aria-label="Menu categories"></nav>
+    </div>
+  </div>
+
+  <div id="menuCategoriesContainer"></div>
+
+  <p id="menuEmptyState" class="menu-empty-state" hidden>No menu items match your search. Try a different word, or <a href="tel:+18566970240">give us a call</a> &mdash; we&rsquo;re happy to help.</p>
+
+  <section class="section section--cream text-center">
+    <div class="container">
+      <h2>Ready to Order?</h2>
+      <p>Call us directly, or visit our Order Online page for pickup and dine-in details.</p>
+      <div class="btn-row" style="justify-content:center;">
+        <a class="btn btn-primary" href="order-online.html">Order Online</a>
+        <a class="btn btn-secondary" href="tel:+18566970240">Call (856) 697-0240</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h4>Pavillion Ristorante &amp; Pizzeria</h4>
+        <p>211 South Harding Highway<br>Landisville, NJ 08326</p>
+        <p><a href="tel:+18566970240">(856) 697-0240</a></p>
+      </div>
+      <div>
+        <h4>Hours</h4>
+        <p>Mon &ndash; Thu: 11am &ndash; 8pm<br>Fri &amp; Sat: 11am &ndash; 9pm<br>Sunday: Closed</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul class="footer-links">
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="order-online.html">Order Online</a></li>
+          <li><a href="catering.html">Catering</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Follow Us</h4>
+        <ul class="footer-links">
+          <li><a href="https://www.facebook.com/people/Pavillion-Pizza/61551833757232/" target="_blank" rel="noopener">Facebook</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; <span data-current-year></span> Pavillion Ristorante &amp; Pizzeria. All rights reserved.</p>
+      <p><a href="accessibility.html">Accessibility Statement</a> &middot; <a href="privacy.html">Privacy Policy</a></p>
+    </div>
+  </div>
+</footer>
+
+<div class="mobile-action-bar">
+  <a href="tel:+18566970240"><span class="icon" aria-hidden="true">&#128222;</span>Call</a>
+  <a href="menu.html"><span class="icon" aria-hidden="true">&#127829;</span>Menu</a>
+  <a href="order-online.html"><span class="icon" aria-hidden="true">&#128717;</span>Order</a>
+</div>
+<button class="jump-top" id="jumpTop" aria-label="Back to top">&uarr;</button>
+
+<script src="assets/js/menu-data.js"></script>
+<script src="assets/js/menu.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
