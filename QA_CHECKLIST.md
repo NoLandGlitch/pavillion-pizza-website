@@ -4,6 +4,41 @@ Status key: ✅ Done · ⏳ Pending build (site not yet connected to Wix —
 see `WIX_SETUP.md`) · ⚠️ Blocked on owner confirmation (see
 `CONTENT_NEEDED.md`)
 
+## Static demo site (`docs/`) — actually verified, not pending
+
+Unlike the Wix track below, the static demo site is real and live
+(https://nolandglitch.github.io/pavillion-pizza-website/), so its build
+QA was run for real with Playwright rather than left pending:
+
+- [x] ✅ All 8 pages return HTTP 200 both locally and on the live
+      GitHub Pages URL.
+- [x] ✅ Zero horizontal overflow on any page at 375px, 820px, 1280px,
+      or 1600px viewport widths.
+- [x] ✅ Zero browser console/page errors on any page at any tested
+      width.
+- [x] ✅ Header state is correct per breakpoint: hamburger + mobile
+      action bar visible and desktop nav/call link hidden below 900px;
+      full nav + click-to-call visible and hamburger hidden at/above
+      900px.
+- [x] ✅ Mobile nav toggle opens/closes correctly.
+- [x] ✅ Menu page renders 141 grouped item cards from all 202
+      `menu-import.csv` rows; searching filters correctly (verified
+      against both "margherita" — 1 result — and "stromboli" — 2
+      results — on the live URL); all 7 category chips render.
+- [x] ✅ Catering form: submitting empty does not show a success state;
+      submitting with all required fields filled does. (Reminder: this
+      is client-side-only — see README.md's "Static Demo Site" section
+      for why no data is actually sent anywhere yet.)
+- [x] ✅ No broken local `href`/`src` references anywhere in `docs/`
+      (scripted check across all 8 HTML files).
+- [x] ✅ `menu-data.js` and every other JS file pass `node --check`
+      (syntax-valid).
+- [ ] ⏳ Full manual accessibility pass (screen reader, full keyboard-
+      only navigation) — automated checks above cover structure/
+      contrast-by-design but not a real assistive-tech pass.
+- [ ] ⚠️ Real form backend connection (see README.md) — needed before
+      this demo could take real catering/contact submissions.
+
 ## Content accuracy (checkable now, before any Wix build)
 
 - [x] ✅ **No invented prices** — every price in `menu-import.csv` was

@@ -1,18 +1,103 @@
-# Pavillion Ristorante & Pizzeria — Wix Studio Redesign
+# Pavillion Ristorante & Pizzeria — Website Redesign
+
+## 🔗 Live demo
+
+**https://nolandglitch.github.io/pavillion-pizza-website/**
+
+A static, fully responsive demo site (plain HTML/CSS/vanilla JS, no
+framework, no build step) — see "Static Demo Site" below for what it is
+and its limitations. This was added on top of the original Wix Studio
+plan per an explicit later request; it is a **separate deliverable**,
+not a replacement for the Wix work described in the rest of this README.
 
 ## Project purpose
 
 A complete redesign of `pavillionpizza.com` (Pavillion Ristorante &
 Pizzeria, 211 South Harding Highway, Landisville, NJ 08326, family-owned
-since 1998), built specifically for **Wix Studio** with **Velo** —
-staying editable by a nontechnical restaurant owner through the Wix
-Studio editor and Wix CMS, not a standalone codebase.
+since 1998). The original scope was **Wix Studio with Velo** — staying
+editable by a nontechnical restaurant owner through the Wix Studio editor
+and Wix CMS, not a standalone codebase. That plan is fully documented
+below and in `WIX_SETUP.md`/`REDESIGN_PLAN.md`/`WIX_EDITOR_BUILD_GUIDE.md`
+and is still the right path for a real production build.
 
-**Current status: this repository is a planning and content workspace,
-not yet connected to a live Wix Studio site.** See `WIX_SETUP.md` for the
-exact steps to connect it. Everything else here — the plan, the menu
-data, the image sourcing, the SEO content, the build instructions — is
-ready to use the moment that connection exists.
+**Current status of the Wix track: this repository is a planning and
+content workspace, not yet connected to a live Wix Studio site.** See
+`WIX_SETUP.md` for the exact steps to connect it. Everything else there —
+the plan, the menu data, the image sourcing, the SEO content, the build
+instructions — is ready to use the moment that connection exists.
+
+## Static Demo Site (`docs/`)
+
+A working, fully responsive static site lives in `docs/` and is what
+GitHub Pages serves at the live demo link above. It reuses the exact same
+verified content, menu data, design system, and sourced images as the
+Wix plan — it's the same redesign, built as static HTML instead of Wix
+pages, so it can be previewed instantly without a Wix account.
+
+**What it includes:**
+- All 6 primary pages (Home, Menu, Order Online, About, Catering,
+  Contact) plus Accessibility and Privacy pages.
+- The complete 202-item menu (generated from `menu-import.csv` into
+  `docs/assets/js/menu-data.js`), grouped into 141 cards, with working
+  client-side search and category navigation.
+- The same design tokens as `REDESIGN_PLAN.md` §2 (colors, Playfair
+  Display + Inter typefaces).
+- Mobile-first responsive layout: sticky header with hamburger menu and
+  a persistent Call/Menu/Order action bar on mobile; full nav and
+  click-to-call on desktop. Verified with Playwright across 375px,
+  820px, 1280px, and 1600px viewports — zero horizontal overflow, zero
+  console errors, on every page.
+- The 14 sourced images from `IMAGE_SOURCES.md`, actually downloaded
+  (free-license only — one originally-listed candidate turned out to be
+  an Unsplash+ premium photo and was swapped out before use; see
+  `IMAGE_SOURCES.md` for the correction note).
+
+**What it does *not* include (by design, since it's static):**
+- **No real backend.** The Catering and Contact forms validate input
+  client-side and show a demo success message, but nothing is actually
+  sent anywhere. To make them functional, connect the `<form>` elements
+  in `docs/catering.html`/`docs/contact.html` to a real form backend
+  (e.g. [Formspree](https://formspree.io), Netlify Forms, or a custom
+  endpoint) — see the comment at the top of `docs/assets/js/forms.js`.
+- **No online ordering integration** — same as the Wix plan's finding:
+  the current live site's own "Order Now" link is broken/unconfigured,
+  so this demo's Order Online page is phone-forward by design (see
+  `CONTENT_NEEDED.md`).
+- **No CMS.** Menu content lives in a generated JS data file, not an
+  editable database — a nontechnical owner cannot update it directly.
+  This is the core tradeoff versus the Wix plan: static HTML is
+  instantly previewable but isn't owner-editable the way Wix Studio +
+  Wix CMS is. For a real production site the owner will actually
+  maintain, follow the Wix plan instead.
+
+### Local development (static site)
+
+No build step or dependencies required:
+
+```bash
+cd docs
+python3 -m http.server 8000
+# then open http://localhost:8000/
+```
+
+To regenerate `assets/js/menu-data.js` after editing `menu-import.csv`,
+see the Python snippet in the project's commit history (it reads the
+CSV and writes the two `window.PAVILLION_MENU_*` arrays) — a proper
+build script can replace this if the static site becomes the long-term
+path rather than a demo.
+
+### Deploying changes to the live demo
+
+```bash
+git add -A
+git commit -m "..."
+git push
+```
+
+GitHub Pages is configured to serve `docs/` from the `main` branch, so a
+push to `main` republishes the live demo automatically (typically within
+a minute or two) — there is no separate "publish" step for this static
+site, unlike the Wix workflow below, which deliberately requires one.
 
 ## What's in this repository
 
